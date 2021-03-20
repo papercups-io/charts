@@ -1,0 +1,32 @@
+{{- if .Values.initialize_database.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ template "papercups.fullname" . }}-initialize-database
+  labels:
+    {{- include "papercups.labels" $ | nindent 4 }}
+  annotations:
+    "helm.sh/hook-delete-policy": "hook-succeeded"
+spec:
+  activeDeadlineSeconds: 60
+  template:
+    metadata:
+      name: {{ template "papercups.fullname" . }}-initialize-database
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: {{ template "papercups.fullname" . }}-initialize-database
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: ["/entrypoint.sh", "db", "createdb"]
+          {{- if or (.Values.configMap) (.Values.secrets) }}
+          envFrom:
+          {{- if .Values.configMap }}
+            - configMapRef:
+                name: {{ template "papercups.fullname" . }}
+          {{- end }}
+          {{- if .Values.secrets }}
+            - secretRef:
+                name: {{ template "papercups.fullname" . }}
+          {{- end }}
+          {{- end }}
+{{- end }}
