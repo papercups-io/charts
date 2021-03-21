@@ -1,2 +1,3 @@
 helm-docs
+kubeval
 charts/**/rendered/

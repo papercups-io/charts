@@ -6,4 +6,7 @@ help: ## Display this help text
 docs: ## Generate the documentation
 	.github/helm-docs.sh
 
-.PHONY: help docs
+kubeval: ## Validate charts using kubeval
+	.github/kubeval.sh
+
+.PHONY: help docs kubeval
