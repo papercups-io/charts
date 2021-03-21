@@ -51,7 +51,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 443
+  port: 4000
 
 # -- TODO: This is untested
 ingress:
@@ -113,6 +113,6 @@ migration:
   enabled: true
 
 initialize_database:
-  # -- Create the databases upon install/upgrade. This runs in a distinct job. 
+  # -- Create the databases upon install/upgrade. This runs in a distinct job.
   # This is idempotent, but you can disable this if you want.
   enabled: true

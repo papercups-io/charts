@@ -8,3 +8,9 @@ version: 0.1.1
 
 # This is the version number of the application being deployed.
 appVersion: "latest"
+
+maintainers:
+- name: jim80net
+  email: jim@ramtank.com
+  url: https://github.com/jim80net
+icon: https://papercups.io/papercups-v2.svg
