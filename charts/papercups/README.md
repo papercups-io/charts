@@ -9,13 +9,14 @@ This chart was designed to deploy [papercups](https://papercups.io) to your Kube
 ### Install the Helm repository
 
 ```
-$ helm repo add papercups https://charts.papercups.io/
-$ helm install papercups papercups/papercups \
+$ helm repo add papercups-io https://papercups-io.github.io/charts/
+$ helm install papercups papercups-io/papercups \
     --set secrets.SECRET_KEY_BASE=<`mix phx.gen.secret` if you donut have one already> \
     --set secret.DATABASE_URL="ecto://papercups:changeit@papercups-db-postgresql.default.svc.cluster.local/papercups"
 ```
 
 ## Prerequisites
+
 ### Backend Database
 
 #### Using the Bitnami PostgreSQL chart
@@ -27,7 +28,6 @@ $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm install papercups-db bitnami/postgresql --set postgresqlUsername=papercups,postgresqlPassword=changeit,postgresqlDatabase=papercups
 ```
 
-# Values
 ## Values
 
 | Key | Type | Default | Description |
