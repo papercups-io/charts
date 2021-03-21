@@ -3,7 +3,7 @@ Deploy the Papercups application to Kubernetes
 
 ## TL;DR
 ```
-$ helm repo add papercups https://charts.papercups.io
+$ helm repo add papercups-io https://papercups-io.github.io/charts/
 $ helm repo update
 ```
 
@@ -14,5 +14,5 @@ $ helm repo update
 
 ### Add Repo
 ```
-$ helm repo add papercups https://charts.papercups.io
+$ helm repo add papercups-io https://papercups-io.github.io/charts/
 ```
