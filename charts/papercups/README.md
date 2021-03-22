@@ -1,6 +1,6 @@
 # Papercups Helm Chart
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 This chart was designed to deploy [papercups](https://papercups.io) to your Kubernetes cluster.
 
@@ -43,7 +43,7 @@ $ helm install papercups-db bitnami/postgresql --set postgresqlUsername=papercup
 | image.tag | string | `"latest@sha256:3c369ea5d68b258c88b12c9fbdfa97e651e4a5b6136f4651553afd217fa55299"` | Override the image tag |
 | imagePullSecrets | list | `[]` |  |
 | ingress | object | `{"annotations":{},"enabled":false,"hosts":[{"host":"papercups.example.com","paths":[]}],"tls":[]}` | TODO: This is untested |
-| initialize_database.enabled | bool | `true` | Create the databases upon install/upgrade. This runs in a distinct job.  This is idempotent, but you can disable this if you want. |
+| initialize_database.enabled | bool | `true` | Create the databases upon install/upgrade. This runs in a distinct job. This is idempotent, but you can disable this if you want. |
 | migration.enabled | bool | `true` | Perform a DB migration upon install/upgrade. This runs in a distinct job. |
 | nameOverride | string | `""` | Override name of app |
 | nodeSelector | object | `{}` | Allow the Deployment to be scheduled on selected nodes |
@@ -54,7 +54,7 @@ $ helm install papercups-db bitnami/postgresql --set postgresqlUsername=papercup
 | secrets.DATABASE_URL | string | `"ecto://papercups:changeit@papercups-db-postgresql.default.svc.cluster.local/papercups"` | The connection parameters for ecto to connect to postgresql |
 | secrets.SECRET_KEY_BASE | string | `"dvPPvOjpgX2Wk8Y3ONrqWsgM9ZtU4sSrs4l/5CFD1sLm4H+CjLU+EidjNGuSz7bz"` | The secret Phoenix uses to sign and encrypt important information |
 | securityContext | object | `{}` | SecurityContext holds security configuration that will be applied to a container. |
-| service.port | int | `443` |  |
+| service.port | int | `4000` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |

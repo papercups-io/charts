@@ -8,8 +8,11 @@ metadata:
     "helm.sh/hook": test-success
 spec:
   containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['{{ include "papercups.fullname" . }}:{{ .Values.service.port }}']
+    - name: curl
+      image: curlimages/curl:7.75.0
+      command: ['curl']
+      args: [
+        '--silent',
+        'http://{{ include "papercups.fullname" . }}:{{ .Values.service.port }}/api/ping'
+        ]
   restartPolicy: Never

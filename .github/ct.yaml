@@ -1,5 +1,9 @@
 chart-repos:
-  - papercups=https://papercups-io.datadoghq.com/papercups
+  - papercups-io=https://papercups-io.github.io/charts/
+  - bitnami=https://charts.bitnami.com/bitnami
 helm-extra-args: --timeout 300s
 check-version-increment: true
-debug: true
+debug: false
+target-branch: main
+namespace: default
+release-label: "app.kubernetes.io/instance"
