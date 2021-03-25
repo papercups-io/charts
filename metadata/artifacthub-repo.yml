@@ -1,0 +1,6 @@
+repositoryID: 1902e5f7-fb8c-4da3-a310-0a015466da21
+owners: # (optional, used to claim repository ownership)
+  - name: kam
+    email: kam@papercups.io
+  - name: alex
+    email: alex@papercups.io
