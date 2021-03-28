@@ -19,7 +19,7 @@ jobs:
           commit_message: ":robot: update docs [skip ci]"
           repository: .
 
-  changed:
+  ct-lint:
     runs-on: ubuntu-latest
     outputs:
       charts: ${{ steps.list-changed.outputs.changed }}
@@ -52,7 +52,7 @@ jobs:
   kubeval-chart:
     runs-on: ubuntu-latest
     needs:
-      - changed
+      - ct-lint
     strategy:
       matrix:
         # When changing versions here, check that the version exists at: https://github.com/instrumenta/kubernetes-json-schema
@@ -76,7 +76,7 @@ jobs:
       - name: Run kubeval
         env:
           KUBERNETES_VERSION: ${{ matrix.k8s }}
-          CHANGED_CHARTS: ${{needs.changed.outputs.charts}}
+          CHANGED_CHARTS: ${{needs.ct-lint.outputs.charts}}
         run: .github/kubeval.sh
 
   install-chart:
