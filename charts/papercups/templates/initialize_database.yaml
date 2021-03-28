@@ -8,7 +8,7 @@ metadata:
   annotations:
     "helm.sh/hook-delete-policy": "hook-succeeded"
 spec:
-  activeDeadlineSeconds: 60
+  backoffLimit: 6
   template:
     metadata:
       name: {{ template "papercups.fullname" . }}-initialize-database
