@@ -8,9 +8,9 @@ This chart was designed to deploy [papercups](https://papercups.io) to your Kube
 
 ### Install the Helm repository
 
-```
-$ helm repo add papercups-io https://papercups-io.github.io/charts/
-$ helm install papercups papercups-io/papercups \
+```bash
+$ helm repo add papercups https://helm.papercups.io/
+$ helm install papercups papercups/papercups \
     --set secrets.SECRET_KEY_BASE=dvPPvOjpgX2Wk8Y3ONrqWsgM9ZtU4sSrs4l/5CFD1sLm4H+CjLU+EidjNGuSz7bz \
     --set secrets.DATABASE_URL="ecto://papercups:changeit@papercups-db-postgresql.default.svc.cluster.local/papercups"
 ```
