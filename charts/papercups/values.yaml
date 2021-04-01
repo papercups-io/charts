@@ -11,7 +11,7 @@ image:
   repository: papercups/papercups
   pullPolicy: IfNotPresent
   # -- Override the image tag
-  tag: "latest@sha256:3c369ea5d68b258c88b12c9fbdfa97e651e4a5b6136f4651553afd217fa55299"
+  tag: "latest@sha256:9134991ef653cdaceeead862bafdfe332ba9d1e24f49fce386ea092e26bbbd1e"
   # -- Equivalent to Docker's Entrypoint
   command: ["/entrypoint.sh"]
   # -- Equivalent to Docker's Command
