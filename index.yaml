@@ -3,6 +3,21 @@ entries:
   papercups:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-04-01T02:09:33.777531007Z"
+    description: A Helm chart to deploy the papercups chat server to Kubernetes
+    digest: cac279e8807a65f1da644c433a2c5594271ff2348c38ab8717b0138d9af9df87
+    icon: https://papercups.io/papercups-v2.svg
+    maintainers:
+    - email: jim@ramtank.com
+      name: jim80net
+      url: https://github.com/jim80net
+    name: papercups
+    type: application
+    urls:
+    - https://github.com/papercups-io/charts/releases/download/papercups-0.1.3/papercups-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-03-28T20:41:47.566877701Z"
     description: A Helm chart to deploy the papercups chat server to Kubernetes
     digest: 8f8aefd5f79cde03af2277bcde09f98cece6e06121c5d980dec092b1c938bcd6
@@ -41,4 +56,4 @@ entries:
     urls:
     - https://github.com/papercups-io/charts/releases/download/papercups-0.1.0/papercups-0.1.0.tgz
     version: 0.1.0
-generated: "2021-03-28T20:41:47.566889501Z"
+generated: "2021-04-01T02:09:33.777554909Z"
