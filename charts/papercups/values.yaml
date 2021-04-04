@@ -50,18 +50,24 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 4000
 
-# -- TODO: This is untested
 ingress:
+  # -- Enable using an Ingress controller.
   enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  # -- Specify Ingress controller's annotations.
+  annotations:
+    # AWS annotations - Read more at https://docs.papercups.io/aws
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+  # -- Specify what hosts the listener will listen for.
+  # -- If external-dns is enabled, then create DNS records for each host entry
   hosts:
-    - host: papercups.example.com
-      paths: []
+    - host: "*"
+      paths:
+        - /
   tls: []
   #  - secretName: papercups-example-com-tls
   #    hosts:

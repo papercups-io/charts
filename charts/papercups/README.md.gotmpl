@@ -28,4 +28,8 @@ $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm install papercups-db bitnami/postgresql --set postgresqlUsername=papercups,postgresqlPassword=changeit,postgresqlDatabase=papercups
 ```
 
+## Deploying to AWS
+
+Read more at [https://docs.papercups.io/aws](https://docs.papercups.io/aws).
+
 {{ template "chart.valuesSection" . }}
