@@ -1,6 +1,7 @@
 # Papercups Helm Chart
 
 ![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 This chart was designed to deploy [papercups](https://papercups.io) to your Kubernetes cluster.
 
@@ -51,7 +52,7 @@ $ helm install papercups-db bitnami/postgresql --set postgresqlUsername=papercup
 | podSecurityContext | object | `{}` | PodSecurityContext holds pod-level security attributes and common container settings. |
 | replicaCount | int | `1` | Specify the number of papercups instances. |
 | resources | object | `{}` | Set resources requests / limits for pods. |
-| secrets.DATABASE_URL | string | `"ecto://papercups:changeit@papercups-db-postgresql.default.svc.cluster.local/papercups"` | The connection parameters for ecto to connect to postgresql |
+| secrets.DATABASE_URL | string | `"ecto://papercups:changeit@papercups-db-postgresql.default.svc.cluster.local/papercups"` | The connection parameters for ecto to connect to external postgres postgresql |
 | secrets.SECRET_KEY_BASE | string | `"dvPPvOjpgX2Wk8Y3ONrqWsgM9ZtU4sSrs4l/5CFD1sLm4H+CjLU+EidjNGuSz7bz"` | The secret Phoenix uses to sign and encrypt important information |
 | securityContext | object | `{}` | SecurityContext holds security configuration that will be applied to a container. |
 | service.port | int | `4000` |  |
@@ -60,3 +61,4 @@ $ helm install papercups-db bitnami/postgresql --set postgresqlUsername=papercup
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` | Tolerations are applied to pods, and allow (but do not require) the pods to schedule onto nodes with matching taints. |
+| global.postgresql.enabled | bool | `true` | Deploy Postgresql [subchart](https://hub.helm.sh/charts/bitnami/postgresql/10.3.18) |
