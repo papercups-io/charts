@@ -57,12 +57,14 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if or ($.Values.configMap) ($.Values.secrets) }}
+          env:
+          {{- include "papercups.psql.envs" . | nindent 12 }}
           envFrom:
           {{- if $.Values.configMap }}
             - configMapRef:
                 name: {{ template "papercups.fullname" $ }}
           {{- end }}
-          {{- if $.Values.secrets }}
+          {{- if or $.Values.secrets $.Values.global.postgresql }}
             - secretRef:
                 name: {{ template "papercups.fullname" $ }}
           {{- end }}
