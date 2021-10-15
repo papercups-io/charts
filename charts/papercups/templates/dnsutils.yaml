@@ -1,4 +1,4 @@
-{{- if .Values.dnsutils.install -}}
+{{- if (.Values.dnsutils).install -}}
 apiVersion: v1
 kind: Pod
 metadata:
